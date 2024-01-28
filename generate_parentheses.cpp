@@ -2,43 +2,50 @@
 // Leet code link: https://leetcode.com/problems/generate-parentheses/description/
 
 #include <vector>
-#include <stack>
-#include <cmath>
-#include <bitset>
-#include <iostream>
+
+using namespace std;
 
 class Solution {
 public:
+    void rec(vector<string>& result, string current_sequence, char new_parentheses, int opening_parentheses, int closing_parenthesis, int height, int n) {
+        current_sequence += new_parentheses;
 
-    std::vector<std::string> generateParenthesis(int n) {
-        std::vector<std::string> result;
-
-        for(int i = 0; i < pow(2, 2*n); i++) {
-            std::stack<char> stack;
-            std::string s = std::bitset<16>(i).to_string().substr(16 - 2*n, 2*n);
-
-            bool is_combination_valid = true;
-            for(auto& c : s) {
-                if(c == '0') {
-                    c = '(';
-                    stack.push('(');
-                }
-                else if(c == '1') {
-                    c = ')';
-
-                    if(stack.empty()) {
-                       is_combination_valid = false;
-                       break;
-                    }
-
-                    stack.pop();
-                }
+        if(new_parentheses == '(') {
+            opening_parentheses++;
+            height++;
+        }
+        else {
+            closing_parenthesis++;
+            height++;
+        }
+        
+        if(opening_parentheses < closing_parenthesis) {
+            return;
+        }
+        
+        if(height == 2*n) {
+            if(opening_parentheses == closing_parenthesis) {
+                result.push_back(current_sequence);
             }
 
-            if(is_combination_valid && stack.empty()) {
-                result.push_back(s);
+            return;
+        }
+        else {
+            if(opening_parentheses < n) {
+                rec(result, current_sequence, '(', opening_parentheses, closing_parenthesis, height, n);
+            }
+
+            if(closing_parenthesis < opening_parentheses) {
+                rec(result, current_sequence, ')', opening_parentheses, closing_parenthesis, height, n);
             }
         }
+    }
+
+    vector<string> generateParenthesis(int n) {
+        vector<string> result;
+
+        rec(result, "", '(', 0, 0, 0, n);
+        rec(result, "", ')', 0, 0, 0, n);
 
         return result;
     }
