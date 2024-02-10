@@ -1,11 +1,18 @@
+#include <iostream>
+#include <vector>
 #include <unordered_set>
 
-class Solution {
+using namespace std;
+
+class Solution
+{
 public:
-    bool containsDuplicate(vector<int>& nums) {
+    bool containsDuplicate(vector<int> &nums)
+    {
         std::unordered_set<int> nums_set;
 
-        for(auto& n : nums) {
+        for (auto &n : nums)
+        {
             nums_set.insert(n);
         }
 
