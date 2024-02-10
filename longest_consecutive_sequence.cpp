@@ -1,3 +1,6 @@
+// 128. Longest Consecutive Sequence
+// Link: https://leetcode.com/problems/longest-consecutive-sequence
+
 #include <iostream>
 #include <unordered_map>
 #include <vector>

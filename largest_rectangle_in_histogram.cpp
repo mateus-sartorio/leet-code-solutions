@@ -1,5 +1,5 @@
 // 84. Largest Rectangle in Histogram
-// Link: https://leetcode.com/problems/largest-rectangle-in-histogram/
+// Link: https://leetcode.com/problems/largest-rectangle-in-histogram
 
 #include <iostream>
 #include <vector>

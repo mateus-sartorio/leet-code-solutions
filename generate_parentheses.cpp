@@ -1,5 +1,5 @@
 // 22. Generate Parentheses
-// Leet code link: https://leetcode.com/problems/generate-parentheses/description/
+// Link: https://leetcode.com/problems/generate-parentheses
 
 #include <iostream>
 #include <vector>

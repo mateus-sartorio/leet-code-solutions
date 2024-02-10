@@ -1,5 +1,5 @@
 // 739. Daily Temperatures
-// LeetCode link: https://leetcode.com/problems/daily-temperatures/
+// Link: https://leetcode.com/problems/daily-temperatures/
 
 #include <iostream>
 #include <vector>

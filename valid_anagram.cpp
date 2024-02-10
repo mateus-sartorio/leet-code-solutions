@@ -1,3 +1,6 @@
+// 242. Valid Anagram
+// Link: https://leetcode.com/problems/valid-anagram
+
 #include <iostream>
 #include <unordered_map>
 
